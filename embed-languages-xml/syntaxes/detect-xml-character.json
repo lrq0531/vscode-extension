@@ -1,0 +1,26 @@
+{
+    "scopeName": "xml.escape.character",
+    "injectionSelector": "L:text.xml",
+    "patterns": [
+		{
+			"include": "#java-code-block-braces"
+		}
+	],
+	"repository": {
+        "xml-escape-character": {
+            "match": "(&&)|<|>",
+            "name": "keyword.letter"
+        },
+		"java-code-block-braces": {
+			"begin": "\\(",
+			"end": "\\)",
+			"name": "xml.block.java.braces",
+            "patterns": [
+                {
+                    "include": "#xml-escape-character"
+                }
+            ]
+		}
+
+	}
+}

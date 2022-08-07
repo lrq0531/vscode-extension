@@ -1,13 +1,25 @@
 <source>
 import java.io.*;
+//TODO
 public class TestJava {
     private String name = "";
     public boolean checkName() {
         if (name != null && name.size() > 0) {
+            int len = name.size();
             return true;
         }
         else {
             return false;
+        }
+    }
+
+    private int nameLen () {
+        if (name != null && name.size() ==0) {
+            return -1;
+        }
+        else {
+
+            return name.size();
         }
     }
 }

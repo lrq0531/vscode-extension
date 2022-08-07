@@ -13,13 +13,16 @@
     "languages": [
       {
         "id": "injected-xml"
+      },
+      {
+        "id": "detect-xml-character"
       }
     ],
     "grammars": [
       {
         "language": "injected-xml",
         "scopeName": "xml.java.js.codeblock",
-        "path": "./syntaxes/codeblock.json",
+        "path": "./syntaxes/injection-xml.json",
         "injectTo": [
           "text.xml"
         ],
@@ -27,6 +30,14 @@
           "meta.embedded.block.js": "javascript",
           "meta.embedded.block.java": "java"
         }
+      },
+      {
+        "language": "detect-xml-character",
+        "scopeName": "xml.escape.character",
+        "path": "./syntaxes/detect-xml-character.json",
+        "injectTo": [
+          "text.xml"
+        ]
       }
     ]
   },

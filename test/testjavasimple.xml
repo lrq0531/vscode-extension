@@ -1,10 +1,27 @@
 <simple_source>
-import java.lang.*;
-public class Simple{
-    private int count = 100;
-    public int countPlusOne() {
-        count ++;
-        return count;
+import java.io.*;
+//TODO
+public class TestJava {
+    private String name = "";
+    public boolean checkName() {
+        if (name != null && name.size() > 0) {
+            int len = name.size();
+            boolean = name.size() > 0 && name != null;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    private int nameLen () {
+        if (name != null && name.size() ==0) {
+            return -1;
+        }
+        else {
+
+            return name.size();
+        }
     }
 }
 </simple_source>
