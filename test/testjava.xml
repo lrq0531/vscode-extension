@@ -1,0 +1,20 @@
+<source>
+import java.io.*;
+public class TestJava {
+    private String name = "";
+    public boolean checkName() {
+        if (name != null && name.size() > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+}
+
+
+</source>
+
+<
+>
+&

@@ -1,0 +1,6 @@
+<js>
+const functionA = () => {
+    const count = 0
+    count ++;
+}
+</js>

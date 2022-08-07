@@ -1,0 +1,62 @@
+{
+	"scopeName": "xml.java.js.codeblock",
+	"fileTypes": [],
+	"injectionSelector": "L:text.xml",
+	"patterns": [
+		{
+			"include": "#js-code-block"
+		},
+		{
+			"include": "#java-code-block"
+		},
+		{
+			"include": "#java-code-block-simple"
+		}
+	],
+	"repository": {
+		"java-code-block": {
+			"begin": "(<)(source)(>)",
+			"end": "(<\\/)(source)(>)",
+			"name": "xml.fenced_code.block.java",
+			"patterns": [
+				{
+					"begin": "(^|\\G)(\\s*)(.*)",
+					"while": "(?!(<\\/)(source)(>))",
+					"contentName": "meta.embedded.block.java",
+					"patterns": [
+						{
+							"include": "source.java"
+						}
+					]
+				}
+			]
+		},
+		"java-code-block-simple": {
+			"begin": "(<)(simple_source)(>)",
+			"end": "(<\\/)(simple_source)(>)",
+			"name": "xml.fenced_code.block.java.simple",
+			"patterns": [
+				{
+					"include": "source.java"
+				}
+			]
+		},
+		"js-code-block": {
+			"begin": "(<)(js)(>)",
+			"end": "(<\\/)(js)(>)",
+			"name": "xml.fenced_code.block.js",
+			"patterns": [
+				{
+					"begin": "(^|\\G)(\\s*)(.*)",
+					"while": "(?!(<\\/)(js)(>))",
+					"contentName": "meta.embedded.block.js",
+					"patterns": [
+						{
+							"include": "source.js"
+						}
+					]
+				}
+			]
+		}
+	}
+}

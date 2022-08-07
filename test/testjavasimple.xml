@@ -1,0 +1,10 @@
+<simple_source>
+import java.lang.*;
+public class Simple{
+    private int count = 100;
+    public int countPlusOne() {
+        count ++;
+        return count;
+    }
+}
+</simple_source>

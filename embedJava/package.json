@@ -1,0 +1,34 @@
+{
+  "name": "embed-multiple-languages-in-xml",
+  "displayName": "embed Java and Javascript in Xml",
+  "description": "",
+  "version": "0.0.1",  
+  "engines": {
+    "vscode": "^1.8.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "injected-xml"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "injected-xml",
+        "scopeName": "xml.java.js.codeblock",
+        "path": "./syntaxes/codeblock.json",
+        "injectTo": [
+          "text.xml"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.js": "javascript",
+          "meta.embedded.block.java": "java"
+        }
+      }
+    ]
+  },
+  "dependencies": {  }
+}
