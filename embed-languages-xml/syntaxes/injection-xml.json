@@ -8,33 +8,13 @@
 		},
 		{
 			"include": "#java-code-block"
-		},
-		{
-			"include": "#java-code-block-simple"
 		}
 	],
 	"repository": {
 		"java-code-block": {
 			"begin": "(<)(Source)(>)",
 			"end": "(<\\/)(Source)(>)",
-			"name": "xml.fenced_code.block.java",
-			"patterns": [
-				{
-					"begin": "(^|\\G)(\\s*)(.*)",
-					"while": "(?!(<\\/)(Source)(>))",
-					"contentName": "meta.embedded.block.java",
-					"patterns": [
-						{
-							"include": "source.java"
-						}
-					]
-				}
-			]
-		},
-		"java-code-block-simple": {
-			"begin": "(<)(simple_source)(>)",
-			"end": "(<\\/)(simple_source)(>)",
-			"name": "xml.fenced_code.block.java.simple",
+			"name": "meta.embedded.block.java",
 			"patterns": [
 				{
 					"include": "source.java"
