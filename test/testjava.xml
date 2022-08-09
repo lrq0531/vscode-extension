@@ -1,4 +1,4 @@
-<source>
+<Source>
 import java.io.*;
 //TODO
 public class TestJava {
@@ -25,7 +25,7 @@ public class TestJava {
 }
 
 
-</source>
+</Source>
 
 <
 >
