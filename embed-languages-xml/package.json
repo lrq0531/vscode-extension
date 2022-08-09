@@ -7,9 +7,16 @@
     "vscode": "^1.8.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Snippets"
   ],
   "contributes": {
+    "snippets": [
+			{
+				"language": "java",
+				"path": "./snippets.json"
+			}
+		],
     "languages": [
       {
         "id": "injected-xml"

@@ -1,0 +1,10 @@
+{
+	"Print to console": {
+		"prefix": "identity-by-name",
+		"body": [
+			"context.getObjectByName(Identity.class, \"$1\");",
+			"$2"
+		],
+		"description": "Get the identity object by name, like m811995"
+	}    
+}
