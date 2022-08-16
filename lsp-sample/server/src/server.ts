@@ -140,20 +140,21 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
 	// The validator creates diagnostics for all uppercase words length 2 and more
 	const text = textDocument.getText();
-	const pattern = /\b[A-Z]{2,}\b/g;
+	//const pattern = /\b[A-Z]{2,}\b/g;
 	let m: RegExpExecArray | null;
 
 	let problems = 0;
 	const diagnostics: Diagnostic[] = [];
-	while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
+	let indexOfAnd = text.indexOf("&&");
+	while ((indexOfAnd >= 0) && problems < settings.maxNumberOfProblems) {
 		problems++;
 		const diagnostic: Diagnostic = {
 			severity: DiagnosticSeverity.Warning,
 			range: {
-				start: textDocument.positionAt(m.index),
-				end: textDocument.positionAt(m.index + m[0].length)
+				start: textDocument.positionAt(indexOfAnd),
+				end: textDocument.positionAt(indexOfAnd+2)
 			},
-			message: `${m[0]} is all uppercase.`,
+			message: `&& needs to be escaped for XML. Example: &amp;&amp;`,
 			source: 'ex'
 		};
 		if (hasDiagnosticRelatedInformationCapability) {
@@ -175,6 +176,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 			];
 		}
 		diagnostics.push(diagnostic);
+		indexOfAnd = text.indexOf("&&", indexOfAnd+1);
 	}
 
 	// Send the computed diagnostics to VSCode.
@@ -202,6 +204,11 @@ connection.onCompletion(
 				label: 'JavaScript',
 				kind: CompletionItemKind.Text,
 				data: 2
+			},
+			{
+				label: 'and',
+				kind: CompletionItemKind.Text,
+				data: 3
 			}
 		];
 	}
@@ -217,6 +224,10 @@ connection.onCompletionResolve(
 		} else if (item.data === 2) {
 			item.detail = 'JavaScript details';
 			item.documentation = 'JavaScript documentation';
+		}
+		else if (item.data === 3) {
+			item.detail = 'JavaScript details';
+			item.documentation = '&amp;&amp';
 		}
 		return item;
 	}
